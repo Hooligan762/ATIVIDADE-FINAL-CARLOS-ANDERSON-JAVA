@@ -6,12 +6,12 @@
 package com.fieb.senai.app.enums;
 
 /**
- * Enum que identifica o sexo 
- * @author Natã Assis 
+ * Enum que identifica o Sexo 
+ * @author Ismael Nonato
  */
 public enum Sexo {
     MASCULINO,
-    FEMININo;
+    FEMININO;
     
             
 }
