@@ -8,31 +8,21 @@ package com.fieb.senai.entidades;
 import java.util.Objects;
 
 /**
- *Classe Identifica a Cidade do Cliente
+ * Identifica o Estado do Cliente
+ *
  * @author Ismael
  */
-public class Cidade {
+public class Estado {
+
     private Integer id;
     private String nome;
-    
-    private Estado Estado;
 
-    public Cidade(Integer id, String nome) {
+    private Cidade cidade;
+
+    public Estado(Integer id, String nome, Cidade cidade) {
         this.id = id;
         this.nome = nome;
-        
-    }
-
-    public Estado getEstado() {
-        return Estado;
-    }
-
-    public void setEstado(Estado Estado) {
-        this.Estado = Estado;
-    }
-
-    public Cidade(Estado Estado) {
-        this.Estado = Estado;
+        this.cidade = cidade;
     }
 
     public Integer getId() {
@@ -51,11 +41,20 @@ public class Cidade {
         this.nome = nome;
     }
 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
         hash = 47 * hash + Objects.hashCode(this.id);
         hash = 47 * hash + Objects.hashCode(this.nome);
+        hash = 47 * hash + Objects.hashCode(this.cidade);
         return hash;
     }
 
@@ -70,11 +69,14 @@ public class Cidade {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cidade other = (Cidade) obj;
+        final Estado other = (Estado) obj;
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.cidade, other.cidade)) {
             return false;
         }
         return true;
